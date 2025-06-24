@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CILA MOVIES - Login</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="../index.html">
+            <h1 class="header_log">CILA MOVIES</h1>
+        </a>
+    </header>
+
+    <main class="main_login">
+        <div class="login_box">
+            <h1 class="titulo_login">Iniciar Sesión</h1>
+
+            <form id="login-form">
+                <input class="input_login" type="email" id="email" placeholder="Correo electrónico" required>
+                <input class="input_login" type="password" id="password" placeholder="Contraseña" required>
+                
+                <div id="error-message" class="error-message hidden"></div>
+                
+                <button class="btn" type="submit" id="login-btn" disabled>Iniciar Sesión</button>
+            </form>
+            
+            <a class="text_subrralado" href="recuperar.html">Olvidé mi contraseña</a>
+
+            <div class="ultima_linea">
+                <p class="text__iniciosesion">¿No tenés cuenta?</p>
+                <a class="text_subrralado" href="registro.html">Registrarte</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="columna_footer">
+            <p>Integrantes</p>
+            <ul>
+                <li>Adrian</li>
+                <li>Cecilia</li>
+                <li>Ivan</li>
+                <li>Luca</li>
+            </ul>
+        </div>
+        <div class="columna_footer">
+            <p>Navegación</p>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html">Películas</a></li>
+                <li><a href="../index.html">Series</a></li>
+            </ul>
+        </div>
+        <div class="columna_footer-redes">
+            <p>Redes Sociales</p>
+            <ul class="redes__footer">
+                <li><a href="https://www.facebook.com/UnlamOficial/?locale=es_LA"><img src="../img/iconos redes/facebook.png" alt="Logo-Facebook"></a></li>
+                <li><a href="https://www.instagram.com/unlamoficial/?hl=es"><img src="../img/iconos redes/instagram.png" alt="Logo-Instagram"></a></li>
+                <li><a href="https://www.youtube.com/c/unlamoficial"><img src="../img/iconos redes/youtube.png" alt="Logo-YouTube"></a></li>
+                <li><a href="https://www.tiktok.com/@unlamoficialok?lang=es"><img src="../img/iconos redes/tik-tok.png" alt="Logo-Tik-tok"></a></li>
+                <li><a href="https://x.com/UnlamOficial"><img src="../img/iconos redes/gorjeo.png" alt="Logo-Twitter"></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/js/login.js"></script>
+</body>
+</html>
