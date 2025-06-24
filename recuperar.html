@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - CILA MOVIES</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/recuperar.css">
+</head>
+
+<body class="fondo_de_recuperar">
+    <header class="header">
+        <a href="../index.html">
+            <h1 class="header_log">CILA MOVIES</h1>
+        </a>
+    </header>
+    
+    <main class="main_recuperar">
+        <div class="recuperar_box">
+            <h2 class="titulo_recuperar">Recuperar contraseña</h2>
+            <p>Enviaremos un correo electrónico con instrucciones sobre cómo restablecer su contraseña.</p>
+
+            <form id="recuperar-form">
+                <input class="input_login" type="email" id="email" placeholder="Correo electrónico" required>
+                <input class="input_login" type="text" id="usuario" placeholder="Nombre de usuario" required>
+                
+                <div id="error-message" class="error-message hidden"></div>
+                <div id="success-message" class="success-message hidden"></div>
+                
+                <button class="btn" type="submit" id="recuperar-btn" disabled>Enviar email</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="columna_footer">
+            <p>Integrantes del grupo</p>
+            <ul>
+                <li>Adrian</li>
+                <li>Cecilia</li>
+                <li>Ivan</li>
+                <li>Luca</li>
+            </ul>
+        </div>
+        <div class="columna_footer">
+            <p>Navegación</p>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html">Películas</a></li>
+                <li><a href="../index.html">Series</a></li>
+            </ul>
+        </div>
+        <div class="columna_footer-redes">
+            <p>Redes Sociales</p>
+            <ul class="redes__footer">
+                <li><a href="https://www.facebook.com/UnlamOficial/?locale=es_LA"><img src="../img/iconos redes/facebook.png" alt="Logo-Facebook"></a></li>
+                <li><a href="https://www.instagram.com/unlamoficial/?hl=es"><img src="../img/iconos redes/instagram.png" alt="Logo-Instagram"></a></li>
+                <li><a href="https://www.youtube.com/c/unlamoficial"><img src="../img/iconos redes/youtube.png" alt="Logo-YouTube"></a></li>
+                <li><a href="https://www.tiktok.com/@unlamoficialok?lang=es"><img src="../img/iconos redes/tik-tok.png" alt="Logo-Tik-tok"></a></li>
+                <li><a href="https://x.com/UnlamOficial"><img src="../img/iconos redes/gorjeo.png" alt="Logo-Twitter"></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../js/recuperar.js"></script>
+</body>
+</html>
