@@ -9,7 +9,35 @@
 
 <body>
     <main>
-        <section class="formulario-cambiado"></section>
-</body>
+        <form class="registro" action="">
+        <section class="registro__datos">
+                <h2 class="registro__titulo">Registrarse</h2>
+                <div class="registro__formulario">
+                    <label for="nombre" class="registro__label">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="registro__input" required>
+                    <div id="nombre-error" class="error-message hidden"></div>
 
+                    <label for="apellido" class="registro__label">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" class="registro__input" required>
+                    <div id="apellido-error" class="error-message hidden"></div>
+
+                    <label for="email" class="registro__label">E-mail</label>
+                    <input type="email" id="email" name="email" class="registro__input" required>
+                    <div id="email-error" class="error-message hidden"></div>
+
+                    <label for="usuario" class="registro__label">Nombre de usuario</label>
+                    <input type="text" id="usuario" name="usuario" class="registro__input" required>
+                    <div id="usuario-error" class="error-message hidden"></div>
+
+                    <label for="password" class="registro__label">Contraseña</label>
+                    <input type="password" id="password" name="password" class="registro__input" required>
+                    <div id="password-error" class="error-message hidden"></div>
+
+                    <label for="confirmarPassword" class="registro__label">Repetir contraseña</label>
+                    <input type="password" id="confirmarPassword" name="confirmarPassword" class="registro__input" required>
+                    <div id="confirmar-error" class="error-message hidden"></div>
+                </div>
+            </section>
+        </form>
+</body>   
 </html>
