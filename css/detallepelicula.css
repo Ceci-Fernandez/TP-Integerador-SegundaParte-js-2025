@@ -1,0 +1,222 @@
+.acciones-pelicula {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-top: 1em;
+    flex-wrap: wrap;
+}
+
+.btn-reproducir{
+
+   background:  #e50914;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+
+}
+
+.btn-reproducir:hover {
+    background: #f6121e;
+    transform: translate(-2px);
+      box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.btn-favorito {
+    background: transparent;
+    border: 2px solid #666;
+    color: #666;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease;
+     display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.btn-favorito:hover {
+    background:  #e50914;
+    color:  #e50914;
+    transform: translate(-2px);
+     box-shadow: 0 4px 12px rgba(229, 9, 20, 0.2);
+}
+
+.btn-favorito.activo {  
+
+ background: #e50914;
+ border-color: #e50914;
+    color: white;
+ animation: pulso_favorito 0.6 ease;
+
+}
+
+.btn-favorito.activo:hover {
+  background: #f40612;
+  border-color: #f40612;
+}
+
+.corazon-icon {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-favorito.activo .corazon-icon {
+  fill: currentColor;
+  stroke: currentColor;
+  animation: latido-corazon 0.6s ease;
+}
+
+favorito-texto {
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-favorito.activo .favorito-texto::after {
+  content: " ✓";
+  font-weight: bold;
+}
+
+@keyframes pulso-favorito {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes latido-corazon {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1.15);
+  }
+}
+
+.btn-favorito.activo::before {
+  content: "💖";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 12px;
+  animation: particula-amor 1s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes particula-amor {
+  0% {
+    opacity: 1;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(360deg) translateY(-20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .acciones-pelicula {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .btn-favorito,
+  .btn-reproducir {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-favorito,
+  .btn-reproducir {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .corazon-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.btn-favorito:active {
+  transform: scale(0.95);
+}
+
+.btn-favorito.cargando {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-favorito.cargando .corazon-icon {
+  animation: rotacion-carga 1s linear infinite;
+}
+
+
+@keyframes rotacion-carga {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-favorito[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 5px;
+}
+
+.btn-favorito[title]:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
