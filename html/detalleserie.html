@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id = "titulo">CILA MOVIES - cargando...</title>
+    <link rel="stylesheet" href="../css/detallepelicula.css">
+    <link rel="stylesheet" href="../css/common.css">
+
 </head>
 <body>
     <header class="header">
@@ -19,13 +22,63 @@
         <li class="header__li btn"><a href="../html/perfilUsuario.html">Perfil</a></li>
       </ul>
 
-
-
   </nav>
-
     </header>
 
+    <main id="main-content">
+  
+    <div id="loading-state" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Cargando serie...</p>
+    </div>
 
+    <div id="error-state" class="error-container" style="display: none;">
+      <div class="error-content">
+        <h2>📺 Serie no encontrada</h2>
+        <p>Lo sentimos, no pudimos encontrar la serie que buscas.</p>
+        <a href="../index.html" class="btn btn-primary">Volver al inicio</a>
+      </div>
+    </div>
+
+    <div id="serie-content" style="display: none;">
+      
+    </div>
+  </main>
+
+  
+  <footer class="footer">
+    <div class="columna_footer">
+        <p>Integrantes del grupo</p>
+        <ul>
+            <li>Adrian Amarilla</li>
+            <li>Cecilia Fernandez</li>
+            <li>Ivan Yankauska</li>
+            <li>Luca Martinez</li>
+        </ul>
+    </div>
+    <div class="columna_footer">
+        <p>Home</p>
+        <ul>
+            <li><a href="../index.html">Catálogo</a></li>
+            <li><a href="../index.html">Tendencias</a></li>
+        </ul>
+    </div>
+    <div class="columna_footer-redes">
+        <p>Redes Sociales</p>
+        <ul class="redes__footer">
+            <li><a href="https://www.facebook.com/UnlamOficial/?locale=es_LA"><img src="../img/iconos redes/facebook.png" alt="Logo-Facebook"></a></li>
+            <li><a href="https://www.instagram.com/unlamoficial/?hl=es"><img src="../img/iconos redes/instagram.png" alt="Logo-Instagram"></a></li>
+            <li><a href="https://www.youtube.com/c/unlamoficial"><img src="../img/iconos redes/youtube.png" alt="Logo-YouTube"></a></li>
+            <li><a href="https://www.tiktok.com/@unlamoficialok?lang=es"><img src="../img/iconos redes/tik-tok.png" alt="Logo-Tik-tok"></a></li>
+            <li><a href="https://x.com/UnlamOficial?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="../img/iconos redes/gorjeo.png" alt="Logo-Twitter"></a></li>
+        </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/catalogo-peliculas-series.js"></script>
+  <script src="../js/navegacion.js"></script>
+  <script src="../js/detalleSerie.js"></script>
 
 
 </body>

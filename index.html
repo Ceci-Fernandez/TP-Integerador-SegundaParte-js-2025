@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>CILA MOVIES</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html">
+            <h1 class="header__h1">CILA MOVIES</h1>
+        </a>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li class="header__li"><a href="index.html">Home</a></li>
+                <li class="header__li"><a href="#" onclick="filterMovies('pelicula')">Películas</a></li>
+                <li class="header__li"><a href="#" onclick="filterMovies('serie')">Series</a></li>
+                <li class="header__li" id="auth-section">
+                    <a href="html/login.html" class="header__li-btn">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__content">
+                <p>Disfruta de las mejores series y películas <br>
+                    En CILA MOVIES</p>
+                <a href="html/registro.html" class="hero__btn" id="hero-btn">Suscríbete</a>
+            </div>
+        </section>
+
+        <section class="busqueda">
+            <h2 class="busqueda__h2">¿Qué querés ver?</h2>
+            <div class="busqueda__content">
+                <input type="search" id="search-input" placeholder="Buscar por nombre">
+                <button onclick="searchMovies()">Buscar</button>
+            </div>
+        </section>
+
+        <section>
+            <div class="filtro">
+                <label for="categoria">Categorías</label>
+                <select name="categoria" id="categoria" onchange="filterByCategory()">
+                    <option value="">Seleccionar categoría</option>
+                    <option value="accion">Acción</option>
+                    <option value="comedia">Comedia</option>
+                    <option value="drama">Drama</option>
+                    <option value="terror">Terror</option>
+                    <option value="western">Western</option>
+                    <option value="aventura">Aventura</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="catalogo" id="catalogo">
+            <div class="catalogo__grid" id="movies-grid"></div>
+        </section>
+
+        <section class="tendencias" id="tendencias">
+            <h2 class="tendencias__h2">Las 5 tendencias</h2>
+            <div class="tendencias__grid" id="trending-grid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="columna_footer">
+            <p>Integrantes del grupo</p>
+            <ul>
+                <li>Adrian Amarilla</li>
+                <li>Cecilia Fernandez</li>
+                <li>Ivan Yankauska</li>
+                <li>Luca Martinez</li>
+            </ul>
+        </div>
+        <div class="columna_footer">
+            <p>Navegación</p>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="filterMovies('pelicula')">Películas</a></li>
+                <li><a href="#" onclick="filterMovies('serie')">Series</a></li>
+                <li id="footer-auth"><a href="html/login.html">Iniciar Sesión</a></li>
+            </ul>
+        </div>
+        <div class="columna_footer-redes">
+            <p>Redes Sociales</p>
+            <ul class="redes__footer">
+                <li><a href=""><img src="img/iconos redes/facebook.png" alt="Facebook"></a></li>
+                <li><a href=""><img src="img/iconos redes/instagram.png" alt="Instagram"></a></li>
+                <li><a href=""><img src="img/iconos redes/youtube.png" alt="YouTube"></a></li>
+                <li><a href=""><img src="img/iconos redes/tik-tok.png" alt="TikTok"></a></li>
+                <li><a href=""><img src="img/iconos redes/gorjeo.png" alt="Twitter"></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="./js/catalogo-peliculas-series.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

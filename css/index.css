@@ -1,0 +1,551 @@
+/* VARIABLES */
+:root {
+  --color-botones: #233dff;
+  --color-base: #1a2980;
+}
+
+/* HERO BANNER SLIDESHOW - MEJORADO */
+.hero {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.hero-banner {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.hero-slides {
+  position: relative;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.hero-content {
+  max-width: 600px;
+  color: white;
+  z-index: 5;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.1;
+}
+
+.hero-genre {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.hero-summary {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 500px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: #e50914;
+  color: white;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+.btn-primary:hover {
+  background: #f40612;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Navegación del banner */
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.hero-nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-nav.prev {
+  left: 20px;
+}
+
+.hero-nav.next {
+  right: 20px;
+}
+
+/* Indicadores */
+.hero-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* BUSQUEDA */
+.busqueda {
+  background-color: #050a30;
+  text-align: center;
+  padding: 1.5em;
+}
+
+.busqueda__h2 {
+  padding-bottom: 0.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.busqueda__content {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  font-weight: 400;
+}
+
+.busqueda__content input {
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  outline: none;
+  border: none;
+  font: inherit;
+}
+
+.busqueda__content button {
+  background: var(--color-botones);
+  color: white;
+  padding: 0.5em 1.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  border: none;
+  font: inherit;
+}
+
+.busqueda__content button:hover {
+  background-color: var(--color-base);
+}
+
+/* FILTROS */
+.filtro {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #050a30;
+  padding-left: 1em;
+}
+
+.filtro label {
+  font-weight: bold;
+  color: white;
+  font: inherit;
+}
+
+.filtro select {
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  font: inherit;
+}
+
+/* CATALOGO */
+.catalogo {
+  background-color: #050a30;
+}
+
+.catalogo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+  padding: 1em;
+}
+
+.pelicula {
+  position: relative;
+}
+
+.pelicula img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 0.5em;
+  background-color: #000;
+}
+
+/* CAROUSEL PARA SIMILARES */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 10px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  flex: 0 0 180px;
+  text-align: center;
+  min-width: 180px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carousel-item p {
+  font-size: 12px;
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.carousel-btn {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 1);
+}
+
+/* Contenedores de similares */
+#similar-movies,
+#similar-series {
+  max-width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+/* EPISODIOS MAS PEQUEÑOS */
+.episode-card {
+  width: 150px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.episode-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.episode-card p {
+  color: white;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* TENDENCIAS */
+.tendencias {
+  background: #050a30;
+  color: white;
+  padding: 2em 1em;
+}
+
+.tendencias__h2 {
+  text-align: left;
+  padding-left: 1em;
+}
+
+.tendencias__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+  padding: 0 1em;
+}
+
+.tendencia {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  max-width: 1200px;
+}
+
+.tendencia img {
+  width: 20em;
+  border-radius: 0.5em;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.numero {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0.1em;
+  font-size: 4em;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-summary {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-overlay {
+    padding: 0 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .hero-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .busqueda__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .busqueda__content input,
+  .busqueda__content button {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .filtro {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em;
+  }
+
+  .catalogo__grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .pelicula img {
+    height: 220px;
+  }
+
+  .carousel-item {
+    flex: 0 0 140px;
+    min-width: 140px;
+  }
+
+  .carousel-item img {
+    height: 200px;
+  }
+
+  .tendencias__grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .numero {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-summary {
+    font-size: 0.8rem;
+  }
+
+  .hero-overlay {
+    padding: 15px;
+  }
+
+  .hero-buttons {
+    gap: 8px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .catalogo__grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .pelicula img {
+    height: 180px;
+  }
+
+  .carousel-item {
+    flex: 0 0 120px;
+    min-width: 120px;
+  }
+
+  .carousel-item img {
+    height: 160px;
+  }
+}
