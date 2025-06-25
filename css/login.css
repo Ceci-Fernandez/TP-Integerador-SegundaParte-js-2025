@@ -1,0 +1,77 @@
+.main_login {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-image: url("../img/collage-de-fondo-de-pelicula.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login_box {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.header_log {
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  padding: 6%;
+  padding-right: 24%;
+  margin-right: -57%;
+}
+
+.text__iniciosesion {
+  font-weight: bold;
+}
+
+.text_subrralado {
+  text-decoration: underline;
+}
+
+.titulo_login {
+  color: white;
+  font-size: 2rem;
+}
+
+.input_login {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.imagen_login {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.hero_login {
+  position: relative;
+}
+
+.fondo_login {
+  background-color: #050a30;
+}
+
+.ultima_linea {
+  color: white;
+}
