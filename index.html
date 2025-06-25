@@ -2,24 +2,28 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/estilos.css" />
-    <link rel="stylesheet" href="/css/index-catalogo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>CILA MOVIES</title>
 </head>
 
 <body>
     <header class="header">
-        <a href="#">
+        <a href="index.html">
             <h1 class="header__h1">CILA MOVIES</h1>
         </a>
         <nav class="header__nav">
             <ul class="header__ul">
-                <li class="header__li"><a id="home" href="#">Home</a></li>
-                <li class="header__li"><a id="peliculas" href="#catalogo">Películas</a></li>
-                <li class="header__li"><a id="series" href="#tendencias">Series</a></li>
-                <li class="header__li"><a href="/html/login.html" class="header__li-btn">Iniciar Sesión</a></li>
+                <li class="header__li"><a href="index.html">Home</a></li>
+                <li class="header__li"><a href="#" onclick="filterMovies('pelicula')">Películas</a></li>
+                <li class="header__li"><a href="#" onclick="filterMovies('serie')">Series</a></li>
+                <li class="header__li" id="auth-section">
+                    <a href="html/login.html" class="header__li-btn">Iniciar Sesión</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -29,120 +33,75 @@
             <div class="hero__content">
                 <p>Disfruta de las mejores series y películas <br>
                     En CILA MOVIES</p>
-                <a href="/html/registroUsuario.html" class="hero__btn">Suscríbete</a>
+                <a href="html/registro.html" class="hero__btn" id="hero-btn">Suscríbete</a>
             </div>
         </section>
 
         <section class="busqueda">
             <h2 class="busqueda__h2">¿Qué querés ver?</h2>
             <div class="busqueda__content">
-                <input type="search" name="busqueda" id="busqueda" placeholder="Buscar por nombre, género o actor..." />
-                <button id="btnBuscarPrincipal">Buscar</button>
+                <input type="search" id="search-input" placeholder="Buscar por nombre">
+                <button onclick="searchMovies()">Buscar</button>
             </div>
         </section>
 
         <section>
             <div class="filtro">
                 <label for="categoria">Categorías</label>
-                <select name="categoria" id="categoria">
-                    <option value="" selected>Seleccionar categoría</option>
-                    <option value="todos">Todos</option>
-                    <option value="peliculas">Películas</option>
-                    <option value="series">Series</option>
-                </select>
-
-                <label for="genero">Géneros</label>
-                <select name="genero" id="genero">
-                    <option value="" selected>Seleccionar género</option>
+                <select name="categoria" id="categoria" onchange="filterByCategory()">
+                    <option value="">Seleccionar categoría</option>
                     <option value="accion">Acción</option>
-                    <option value="aventura">Aventura</option>
                     <option value="comedia">Comedia</option>
                     <option value="drama">Drama</option>
-                    <option value="fantasia">Fantasía</option>
                     <option value="terror">Terror</option>
-                    <option value="ciencia-ficcion">Ciencia Ficción</option>
-                    <option value="romance">Romance</option>
-                    <option value="thriller">Thriller</option>
-                    <option value="crimen">Crimen</option>
                     <option value="western">Western</option>
+                    <option value="aventura">Aventura</option>
                 </select>
-
-                <button id="btnLimpiarFiltros" class="btn-limpiar">Limpiar filtros</button>
-            </div>
-        </section>
-
-        <section class="resultados-info" id="resultadosInfo" style="display: none;">
-            <div class="resultados-header">
-                <h3 id="tituloResultados">Resultados</h3>
-                <span id="contadorResultados" class="contador">0 resultados</span>
             </div>
         </section>
 
         <section class="catalogo" id="catalogo">
-            <h2 class="catalogo__h2">Catálogo</h2>
-            <div class="catalogo__grid" id="catalogoGrid">
-            </div>
-
-            <div id="sinResultados" class="sin-resultados" style="display: none;">
-                <div class="sin-resultados-icon">🔍</div>
-                <h3>No se encontraron resultados</h3>
-                <p>Intenta con otros términos de búsqueda o cambia los filtros</p>
-                <button id="btnMostrarTodo" class="btn-mostrar-todo">Mostrar todo el contenido</button>
-            </div>
+            <div class="catalogo__grid" id="movies-grid"></div>
         </section>
 
         <section class="tendencias" id="tendencias">
             <h2 class="tendencias__h2">Las 5 tendencias</h2>
-            <div class="tendencias__grid" id="tendenciasGrid">
-            </div>
+            <div class="tendencias__grid" id="trending-grid"></div>
         </section>
-
-        <div id="indicadorCarga" class="indicador-carga" style="display: none;">
-            <div class="spinner"></div>
-            <p>Cargando contenido...</p>
-        </div>
     </main>
 
-    <footer>
-        <div class="footer">
-            <div class="columna_footer">
-                <p>Integrantes</p>
-                <ul>
-                    <li>Adrian</li>
-                    <li>Cecilia</li>
-                    <li>Ivan</li>
-                    <li>Luca</li>
-                </ul>
-            </div>
-            <div class="columna_footer">
-                <p>Home</p>
-                <ul>
-                    <li><a href="#catalogo">Catálogo</a></li>
-                    <li><a href="#tendencias">Tendencias</a></li>
-                </ul>
-            </div>
-            <div class="columna_footer-redes">
-                <p>Redes Sociales</p>
-                <ul class="redes__footer">
-                    <li><a href="https://www.facebook.com/UnlamOficial/?locale=es_LA"><img
-                                src="/img/iconos redes/facebook.png" alt="Logo-Facebook"></a></li>
-                    <li><a href="https://www.instagram.com/unlamoficial/?hl=es"><img
-                                src="/img/iconos redes/instagram.png" alt="Logo-Instagram"></a></li>
-                    <li><a href="https://www.youtube.com/c/unlamoficial"><img src="/img/iconos redes/youtube.png"
-                                alt="Logo-YouTube"></a></li>
-                    <li><a href="https://www.tiktok.com/@unlamoficialok?lang=es"><img
-                                src="/img/iconos redes/tik-tok.png" alt="Logo-Tik-tok"></a></li>
-                    <li><a href="https://x.com/UnlamOficial?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img
-                                src="/img/iconos redes/gorjeo.png" alt="Logo-Twitter"></a></li>
-                </ul>
-            </div>
+    <footer class="footer">
+        <div class="columna_footer">
+            <p>Integrantes del grupo</p>
+            <ul>
+                <li>Adrian Amarilla</li>
+                <li>Cecilia Fernandez</li>
+                <li>Ivan Yankauska</li>
+                <li>Luca Martinez</li>
+            </ul>
         </div>
-        <p class="copyright">Copyright © 2025- by Cila Movie</p>
+        <div class="columna_footer">
+            <p>Navegación</p>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="filterMovies('pelicula')">Películas</a></li>
+                <li><a href="#" onclick="filterMovies('serie')">Series</a></li>
+                <li id="footer-auth"><a href="html/login.html">Iniciar Sesión</a></li>
+            </ul>
+        </div>
+        <div class="columna_footer-redes">
+            <p>Redes Sociales</p>
+            <ul class="redes__footer">
+                <li><a href=""><img src="img/iconos redes/facebook.png" alt="Facebook"></a></li>
+                <li><a href=""><img src="img/iconos redes/instagram.png" alt="Instagram"></a></li>
+                <li><a href=""><img src="img/iconos redes/youtube.png" alt="YouTube"></a></li>
+                <li><a href=""><img src="img/iconos redes/tik-tok.png" alt="TikTok"></a></li>
+                <li><a href=""><img src="img/iconos redes/gorjeo.png" alt="Twitter"></a></li>
+            </ul>
+        </div>
     </footer>
-
-    <script src="/js/catalogo-peliculas-series.js"></script>
-    <script src="/js/paginaPrincipal.js"></script>
-    <script src="/js/navegacion.js"></script>
+    <script src="./js/catalogo-peliculas-series.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
